@@ -81,7 +81,7 @@ namespace PersonalTracking
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].HeaderText = "User No";
             dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "Surname";
+            dataGridView1.Columns[3].HeaderText = "SurName";
             dataGridView1.Columns[4].HeaderText = "Department";
             dataGridView1.Columns[5].HeaderText = "Position";
             dataGridView1.Columns[6].Visible = false;
