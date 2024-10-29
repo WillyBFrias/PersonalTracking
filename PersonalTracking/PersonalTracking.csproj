@@ -46,14 +46,135 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDepartment.Designer.cs">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDepartmentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDepartmentList.Designer.cs">
+      <DependentUpon>FrmDepartmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployee.Designer.cs">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployeeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployeeList.Designer.cs">
+      <DependentUpon>FrmEmployeeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPermission.Designer.cs">
+      <DependentUpon>FrmPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPermissionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPermissionList.Designer.cs">
+      <DependentUpon>FrmPermissionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPosition.Designer.cs">
+      <DependentUpon>FrmPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPositionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPositionList.Designer.cs">
+      <DependentUpon>FrmPositionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSalary.Designer.cs">
+      <DependentUpon>FrmSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSalaryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSalaryList.Designer.cs">
+      <DependentUpon>FrmSalaryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTask.Designer.cs">
+      <DependentUpon>FrmTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTaskList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaskList.Designer.cs">
+      <DependentUpon>FrmTaskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDepartment.resx">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDepartmentList.resx">
+      <DependentUpon>FrmDepartmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployee.resx">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployeeList.resx">
+      <DependentUpon>FrmEmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPermission.resx">
+      <DependentUpon>FrmPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPermissionList.resx">
+      <DependentUpon>FrmPermissionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPosition.resx">
+      <DependentUpon>FrmPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPositionList.resx">
+      <DependentUpon>FrmPositionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSalary.resx">
+      <DependentUpon>FrmSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSalaryList.resx">
+      <DependentUpon>FrmSalaryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTask.resx">
+      <DependentUpon>FrmTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaskList.resx">
+      <DependentUpon>FrmTaskList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +183,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -85,6 +207,33 @@
       <Project>{054fdc58-6cb5-4f9d-9ca9-f3b655afb35a}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista-de-tareas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista-de-tareas1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuenta-por-cobrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compromiso-con-la-marca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

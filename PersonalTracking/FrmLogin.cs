@@ -16,5 +16,27 @@ namespace PersonalTracking
         {
             InitializeComponent();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUserNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = General.isNumber(e);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            FrmMain frm= new FrmMain();
+            this.Hide();
+            frm.ShowDialog();
+        }
     }
 }
