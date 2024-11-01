@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DAL.DTO
 {
-    public  class TaskDTO
+    public class TaskDTO
     {
-        public List<EmployeeDetailDTO> Employees { get; set; }
-        public List<DEPARTMENTS> Departments { get; set; }
+        public List<EmployeeDetailDTO> Employees {  get; set; }
+        public List<DEPARTMENTS> Departments {  get; set; }
         public List<PositionDTO> Positions { get; set; }
-        public List<TASKSTATE> TaskStates {  get; set; }
+        public List<TASKSTATE> TaskStates { get; set; }
+        public List<TaskDetailDTO> Tasks { get; set; }
     }
 }
