@@ -63,6 +63,7 @@ namespace DAL.DAO
                 dto.State= item.StateID;
                 dto.StateName = item.Statename;
                 dto.Explanation = item.Explanation;
+                dto.PermissionID = item.PermissionID;
                 permissions.Add(dto);
                 
             }
@@ -72,6 +73,40 @@ namespace DAL.DAO
         public static List<PERMISSIONSTATE> GetStates()
         {
             return db.PERMISSIONSTATE.ToList();
+        }
+
+        public static void UpdatePermission(PERMISSION permission)
+        {
+            try
+            {
+                PERMISSION pr= db.PERMISSION.First(x=>x.ID==permission.ID);
+                pr.PermissionStartDate= permission.PermissionStartDate;
+                pr.PermissionEndDate= permission.PermissionEndDate;
+                pr.PermissionExplanation= permission.PermissionExplanation;
+                pr.PermissionDay= permission.PermissionDay;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+
+                throw ex;
+            }
+        }
+
+        public static void UpdatePermission(int permissionID, int approved)
+        {
+            try
+            {
+                PERMISSION pr = db.PERMISSION.First(x => x.ID==permissionID);
+                pr.PermissionState= approved;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
