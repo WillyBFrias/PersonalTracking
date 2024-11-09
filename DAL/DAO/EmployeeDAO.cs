@@ -62,6 +62,7 @@ namespace DAL.DAO
                 dto.IsAdmin = item.isAdmin;                                                
                 dto.Adress = item.Adress;
                 dto.Birthday = item.BirthDay;
+                dto.ImagePath = item.ImagePath;
                 employeeList.Add(dto);
 
             }
@@ -87,6 +88,21 @@ namespace DAL.DAO
         public static List<EMPLOYEE> GetUsers(int v)
         {
             return db.EMPLOYEE.Where(x=>x.UserNo == v).ToList();
+        }
+
+        public static void UpdateEmployee(int employeeID, int amount)
+        {
+            try
+            {
+                 EMPLOYEE employee= db.EMPLOYEE.First(x => x.ID == employeeID);
+                employee.Salary = amount;
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
