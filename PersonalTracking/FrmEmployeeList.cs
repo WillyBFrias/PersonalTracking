@@ -23,10 +23,19 @@ namespace PersonalTracking
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            FrmEmployee frm = new FrmEmployee();
-            this.Hide();
-            frm.ShowDialog();
-            this.Visible = true;
+            if (detail.EmployeeID == 0)
+                MessageBox.Show("Please select an employee on table");
+            else
+            {
+                FrmEmployee frm = new FrmEmployee();
+                frm.isUpdate = true;
+                frm.detail = detail;
+                this.Hide();
+                frm.ShowDialog();
+                this.Visible = true;
+                FillAllData();
+                CleanFilters();
+            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -75,13 +84,16 @@ namespace PersonalTracking
         }
         EmployeeDTO dto = new EmployeeDTO();
         private bool combofull = false;
+        EmployeeDetailDTO detail = new EmployeeDetailDTO();
+
         void FillAllData()
         {
             dto = EmployeeBLL.GetAll();
             dataGridView1.DataSource = dto.Employees;
+            
             combofull = false;
             cmbDepartment.DataSource = dto.Departments;
-            cmbDepartment.DisplayMember = "DepartmentName";
+            cmbDepartment.DisplayMember = "DepartmentName";     
             cmbDepartment.ValueMember = "ID";
             cmbPosition.DataSource = dto.Positions;
             cmbPosition.DisplayMember = "PositionName";
@@ -94,21 +106,20 @@ namespace PersonalTracking
         private void FrmEmployeeList_Load(object sender, EventArgs e)
         {
             FillAllData();
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "User No";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "SurName";
-            dataGridView1.Columns[4].HeaderText = "Department";
-            dataGridView1.Columns[5].HeaderText = "Position";
-            dataGridView1.Columns[6].Visible = false;
-            dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].HeaderText = "Salary";
-            dataGridView1.Columns[9].Visible = false;
-            dataGridView1.Columns[10].Visible = false;
-            dataGridView1.Columns[11].Visible = false;
-            dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            
+            dataGridView1.Columns[0].Visible = false;           // Numero del Empleado
+            dataGridView1.Columns[1].HeaderText = "User No";    // Numero de Usuario
+            dataGridView1.Columns[2].HeaderText = "Name";       // Nombre del Usuario
+            dataGridView1.Columns[3].HeaderText = "SurName";    // Apellido del Usuario
+            dataGridView1.Columns[4].HeaderText = "Department"; // Departamento Correspondiente
+            dataGridView1.Columns[5].HeaderText = "Position";   // Posición  Correspondiente 
+            dataGridView1.Columns[6].Visible = false;           // ID del Departamento 
+            dataGridView1.Columns[7].Visible = false;           // ID de la Posición 
+            dataGridView1.Columns[8].HeaderText = "Salary";     // Salario del Usuario
+            dataGridView1.Columns[9].Visible = false;           // Si es Administrador o no
+            dataGridView1.Columns[10].Visible = false;          // Contra del Usuario
+            dataGridView1.Columns[11].Visible = false;          // Imagen del Usuario
+            dataGridView1.Columns[12].Visible = false;          // Dirección del Usuario 
+            dataGridView1.Columns[13].Visible = false;          // Cumpleaños  del Usuario 
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,6 +167,23 @@ namespace PersonalTracking
             cmbPosition.SelectedIndex = -1;
             combofull = true;
             dataGridView1.DataSource = dto.Employees;
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            detail.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            detail.UserNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            detail.Name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            detail.SurName = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            detail.DepartmentID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+            detail.PositionID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value);
+            detail.Salary = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
+            detail.IsAdmin = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[9].Value);
+            detail.Password = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+            detail.ImagePath = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+            detail.Adress = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();            
+            detail.Birthday = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex ].Cells[13].Value);                                                
+            
         }
     }
 }

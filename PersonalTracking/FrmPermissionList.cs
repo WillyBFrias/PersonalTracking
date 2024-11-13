@@ -87,21 +87,21 @@ namespace PersonalTracking
         private void FrmPermissionList_Load(object sender, EventArgs e)
         {
             FillAllData();
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "User No";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "SurName";
-            dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].Visible = false;
-            dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].HeaderText = "Start Date";
-            dataGridView1.Columns[9].HeaderText = "End Date";            
-            dataGridView1.Columns[10].HeaderText = "Day Amount";
-            dataGridView1.Columns[11].HeaderText = "State";
-            dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[14].Visible = false;
+            dataGridView1.Columns[0].Visible = false;             // ID del Empleado
+            dataGridView1.Columns[1].HeaderText = "User No";      // Numero del Empleado
+            dataGridView1.Columns[2].HeaderText = "Name";         // Nombre del Empleado
+            dataGridView1.Columns[3].HeaderText = "SurName";      // Apellido del Empleado 
+            dataGridView1.Columns[4].Visible = false;             // Nombre del Departamento
+            dataGridView1.Columns[5].Visible = false;             // Nombre de la posición 
+            dataGridView1.Columns[6].Visible = false;             // ID del Departamento
+            dataGridView1.Columns[7].Visible = false;             // ID de la Posición
+            dataGridView1.Columns[8].HeaderText = "Start Date";   // Fecha de Inicio 
+            dataGridView1.Columns[9].HeaderText = "End Date";     // Fecha del Fin       
+            dataGridView1.Columns[10].HeaderText = "Day Amount";  // Cantidad del Dia
+            dataGridView1.Columns[11].HeaderText = "State";       // Estado 
+            dataGridView1.Columns[12].Visible = false;            // ID del Estado 
+            dataGridView1.Columns[13].Visible = false;            // Explicación 
+            dataGridView1.Columns[14].Visible = false;            // ID del Permiso 
 
             
         }

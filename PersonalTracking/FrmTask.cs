@@ -27,11 +27,12 @@ namespace PersonalTracking
         }
         TaskDTO dto= new TaskDTO();
         private bool combofull= false;
+        public bool isUpdate = false;
+        public TaskDetailDTO detail = new TaskDetailDTO();
 
         private void FrmTask_Load(object sender, EventArgs e)
         {
-            label6.Visible = false;
-            cmbTaskState.Visible = false;
+            
             dto = TaskBLL.GetAll();
             dataGridView1.DataSource= dto.Employees;
             dataGridView1.Columns[0].Visible = false;
@@ -59,11 +60,22 @@ namespace PersonalTracking
             cmbDepartment.SelectedIndex = -1;
             cmbPosition.SelectedIndex = -1;
             combofull = true;
-            cmbTaskState.DataSource= dto.TaskStates;
-            cmbTaskState.DisplayMember = "StateName";  
-            cmbTaskState.ValueMember = "ID";
-            cmbTaskState.SelectedIndex = -1;
+            
+            if(isUpdate)
+            {
+                label6.Visible = true;
+                cmbTaskState.Visible = true;
+                txtName.Text = detail.Name;
+                txtUserNo.Text = detail.UserNo.ToString();
+                txtSurname.Text = detail.SurName;
+                txtTitle.Text = detail.Title;
+                txtContent.Text = detail.Content;
+                cmbTaskState.DataSource = dto.TaskStates;
+                cmbTaskState.DisplayMember = "StateName";
+                cmbTaskState.ValueMember = "ID";
+                cmbTaskState.SelectedValue = detail.TaskStateID;
 
+            }
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,17 +119,39 @@ namespace PersonalTracking
                 MessageBox.Show("Content is empty");
             else
             {
-                task.TaskTitle = txtTitle.Text;
-                task.TaskContent = txtContent.Text; 
-                task.TaskStartDate = DateTime.Today;
-                task.TaskState = 1;
-                TaskBLL.AddTask(task);
-                MessageBox.Show("Task was added");
-                txtTitle.Clear();
-                txtContent.Clear();
-                task = new TASK();
+                if(!isUpdate)
+                {
+                    task.TaskTitle = txtTitle.Text;
+                    task.TaskContent = txtContent.Text;
+                    task.TaskStartDate = DateTime.Today;
+                    task.TaskState = 1;
+                    TaskBLL.AddTask(task);
+                    MessageBox.Show("Task was added");
+                    txtTitle.Clear();
+                    txtContent.Clear();
+                    task = new TASK();
+                }               
+                else if(isUpdate)
+                {
+                    DialogResult result = MessageBox.Show("Are you sure","waring",MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        TASK update = new TASK();
+                        update.ID = detail.TaskID;
+                        if(Convert.ToInt32(txtUserNo.Text) != detail.UserNo)
+                            update.EmployeeID = task.EmployeeID;
+                        else
+                            update.EmployeeID = detail.EmployeeID;
+                        update.TaskTitle = txtTitle.Text;
+                        update.TaskContent = txtContent.Text;
+                        update.TaskState = Convert.ToInt32(cmbTaskState.SelectedValue);
+                        TaskBLL.UpdateTask(update);
+                        MessageBox.Show("Task was update");
+                        this.Close();
 
 
+                    }
+                }
             }
         }
     }

@@ -81,20 +81,20 @@ namespace PersonalTracking
         private void FrmSalaryList_Load(object sender, EventArgs e)
         {
             FillAllData();
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "User No";
-            dataGridView1.Columns[2].HeaderText = "Name";
-            dataGridView1.Columns[3].HeaderText = "SurName";            
-            dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].Visible = false;
-            dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].HeaderText = "Month";
-            dataGridView1.Columns[9].HeaderText = "Year";
-            dataGridView1.Columns[10].Visible = false;
-            dataGridView1.Columns[11].HeaderText = "Salary";                        
-            dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[0].Visible = false;        // ID del Empleado  
+            dataGridView1.Columns[1].HeaderText = "User No"; // Numero de Usuario
+            dataGridView1.Columns[2].HeaderText = "Name";    // Nombre del Usuario
+            dataGridView1.Columns[3].HeaderText = "SurName"; // Apellido del Usuario
+            dataGridView1.Columns[4].Visible = false;        // Nombre del Departamento
+            dataGridView1.Columns[5].Visible = false;        // Nombre de la Posición 
+            dataGridView1.Columns[6].Visible = false;        // ID del Departamento 
+            dataGridView1.Columns[7].Visible = false;        // ID de la Posición  
+            dataGridView1.Columns[8].HeaderText = "Month";   // Mes
+            dataGridView1.Columns[9].HeaderText = "Year";    // Año 
+            dataGridView1.Columns[10].Visible = false;       // ID del Mes
+            dataGridView1.Columns[11].HeaderText = "Salary"; // Salario                        
+            dataGridView1.Columns[12].Visible = false;       // ID del Salario 
+            dataGridView1.Columns[13].Visible = false;       // Antiguo Salario
 
             
 
