@@ -70,5 +70,18 @@ namespace PersonalTracking
             detail.ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             detail.DepartmentName = dataGridView1.Rows[e.RowIndex ].Cells[1].Value.ToString();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure to delete this Department", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                DepartmentBLL.DeleteDepartment(detail.ID);
+                MessageBox.Show("Department was Deleted");
+
+                list = DepartmentBLL.GetDepartments();
+                dataGridView1.DataSource = list;
+            }
+        }
     }
 }

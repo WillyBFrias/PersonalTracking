@@ -19,6 +19,7 @@ namespace PersonalTracking
         public FrmEmployeeList()
         {
             InitializeComponent();
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -50,7 +51,15 @@ namespace PersonalTracking
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DialogResult result=MessageBox.Show("Are you sure to delete this employee","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if(result ==DialogResult.Yes)
+            {
+                EmployeeBLL.DeleteEmployee(detail.EmployeeID);
+                MessageBox.Show("Employee was Deleted");
+                FillAllData();
+                CleanFilters(); 
 
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -82,15 +91,15 @@ namespace PersonalTracking
         {
 
         }
+
         EmployeeDTO dto = new EmployeeDTO();
-        private bool combofull = false;
+        private bool combofull;
         EmployeeDetailDTO detail = new EmployeeDetailDTO();
 
         void FillAllData()
         {
             dto = EmployeeBLL.GetAll();
             dataGridView1.DataSource = dto.Employees;
-            
             combofull = false;
             cmbDepartment.DataSource = dto.Departments;
             cmbDepartment.DisplayMember = "DepartmentName";     
@@ -119,7 +128,10 @@ namespace PersonalTracking
             dataGridView1.Columns[10].Visible = false;          // Contra del Usuario
             dataGridView1.Columns[11].Visible = false;          // Imagen del Usuario
             dataGridView1.Columns[12].Visible = false;          // Dirección del Usuario 
-            dataGridView1.Columns[13].Visible = false;          // Cumpleaños  del Usuario 
+            dataGridView1.Columns[13].Visible = false;          // Cumpleaños  del Usuario
+                                                                
+
+
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)

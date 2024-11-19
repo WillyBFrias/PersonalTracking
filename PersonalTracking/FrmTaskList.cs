@@ -60,7 +60,6 @@ namespace PersonalTracking
         private void FrmTaskList_Load(object sender, EventArgs e)
         {
             FillAllData();
-
             dataGridView1.Columns[0].HeaderText = "Task Title";
             dataGridView1.Columns[1].HeaderText = "User No";
             dataGridView1.Columns[2].HeaderText = "Name";
@@ -182,6 +181,27 @@ namespace PersonalTracking
             detail.EmployeeID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value);
             detail.Content= dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();              
             detail.TaskStateID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[14].Value);                        
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure to delete this task", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                TaskBLL.DeleteTask(detail.TaskID);
+                MessageBox.Show("Task was Deleted");
+                FillAllData();
+                CleanFilters();
+
+            }
+        }
+        
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            TaskBLL.UpdateTasks(detail.TaskID, TaskStates.Approved);
+            MessageBox.Show("Approved");
+            FillAllData();
+            CleanFilters();
         }
     }
 }

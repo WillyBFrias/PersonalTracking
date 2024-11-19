@@ -60,10 +60,15 @@ namespace PersonalTracking
             cmbDepartment.SelectedIndex = -1;
             cmbPosition.SelectedIndex = -1;
             combofull = true;
+            cmbTaskState.DataSource = dto.TaskStates;
+            cmbTaskState.DisplayMember = "StateName";
+            cmbTaskState.ValueMember = "ID";
+            cmbTaskState.SelectedIndex = -1; 
             
-            if(isUpdate)
+
+            if (isUpdate)
             {
-                label6.Visible = true;
+                label6.Visible = true;                
                 cmbTaskState.Visible = true;
                 txtName.Text = detail.Name;
                 txtUserNo.Text = detail.UserNo.ToString();
@@ -124,7 +129,7 @@ namespace PersonalTracking
                     task.TaskTitle = txtTitle.Text;
                     task.TaskContent = txtContent.Text;
                     task.TaskStartDate = DateTime.Today;
-                    task.TaskState = 1;
+                    task.TaskState = Convert.ToInt32(cmbTaskState.SelectedValue);                    
                     TaskBLL.AddTask(task);
                     MessageBox.Show("Task was added");
                     txtTitle.Clear();

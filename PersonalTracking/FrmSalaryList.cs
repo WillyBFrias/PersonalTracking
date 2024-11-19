@@ -180,5 +180,17 @@ namespace PersonalTracking
             detail.SalaryAmount= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
             detail.OldSalary= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[11].Value);
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result= MessageBox.Show("Are you sure to delete this Salary", "Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                SalaryBLL.DeleteSalary(detail.SalaryID);
+                MessageBox.Show("Salary was Deleted");
+                FillAllData();
+                CleanFilters();
+            }
+        }
     }
 }
