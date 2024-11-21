@@ -113,13 +113,17 @@ namespace DAL.DAO
             }
         }
 
-        public static void UpdateTasks(int taskID, int approved)
+        public static void ApproveTask(int taskID, bool isAdmin)
         {
             try
             {
                 TASK ta = db.TASK.First(x => x.ID == taskID);
-                ta.TaskState = approved;
-                db.SubmitChanges();
+                if(isAdmin)
+                    ta.TaskState= TaskStates.Approved;
+                else                
+                    ta.TaskState= TaskStates.Delivery;
+                ta.TaskDeliveryDate = DateTime.Today;
+                db.SubmitChanges();                              
 
             }
             catch (Exception ex)

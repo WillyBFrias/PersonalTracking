@@ -49,6 +49,8 @@ namespace PersonalTracking
         {
             if (detail.PermissionID == 0)
                 MessageBox.Show("Please select a permission from table");
+            else if (detail.State == PermissionStates.Approved || detail.State == PermissionStates.Disapproved)
+                MessageBox.Show("You can not update any approved or disapproved permission");
             else
             {
                 FrmPermission frm = new FrmPermission();
@@ -67,6 +69,8 @@ namespace PersonalTracking
         void FillAllData()
         {
             dto = PermissionBLL.GetAll();
+            if(!UserStatic.IsAdmin) 
+                dto.Permissions=dto.Permissions.Where(x => x.EmployeeID == UserStatic.EmployeeID).ToList();
             dataGridView1.DataSource = dto.Permissions;
             combofull = false;
             cmbDepartment.DataSource = dto.Departments;
@@ -102,7 +106,17 @@ namespace PersonalTracking
             dataGridView1.Columns[12].Visible = false;            // ID del Estado 
             dataGridView1.Columns[13].Visible = false;            // Explicación 
             dataGridView1.Columns[14].Visible = false;            // ID del Permiso 
+            if(!UserStatic.IsAdmin)
+            {
 
+                pnlForAdmin.Visible = false;
+                btnApprove.Hide();
+                btnDisapprove.Hide();
+                btnDelete.Hide();
+                btnClose.Location = new Point(488, 41);
+                
+
+            }
             
         }
 
@@ -204,6 +218,11 @@ namespace PersonalTracking
 
 
             }
+        }
+
+        private void txtExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dataGridView1);
         }
     }
 }

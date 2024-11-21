@@ -34,7 +34,7 @@ namespace DAL
     partial void UpdateDEPARTMENTS(DEPARTMENTS instance);
     partial void DeleteDEPARTMENTS(DEPARTMENTS instance);
     partial void InsertTASKSTATE(TASKSTATE instance);
-    partial void UpdateTASKSTATE(TASKSTATE instance);
+    partial void ApproveTaskTATE(TASKSTATE instance);
     partial void DeleteTASKSTATE(TASKSTATE instance);
     partial void InsertTASK(TASK instance);
     partial void UpdateTASK(TASK instance);

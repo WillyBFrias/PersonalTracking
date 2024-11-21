@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.DTO
 {
-    public class TaskStates
+    public static class TaskStates
     {
         public static int OnEmployee = 1;
         public static int Delivery = 2;

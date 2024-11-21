@@ -49,7 +49,7 @@ namespace PersonalTracking
                     employee= employeelist.First();
                     UserStatic.EmployeeID = employee.ID; 
                     UserStatic.UserNo = employee.UserNo;
-                    UserStatic.IsAdmin = employee.isAdmin;
+                    UserStatic.IsAdmin = Convert.ToBoolean(employee.isAdmin);
                     FrmMain frm= new FrmMain();
                     this.Hide();
                     frm.ShowDialog();

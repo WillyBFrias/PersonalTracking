@@ -59,6 +59,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtExcel);
             this.panel3.Controls.Add(this.btnClear);
             this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.groupBox1);
@@ -97,9 +99,9 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(287, 117);
+            this.btnClear.Location = new System.Drawing.Point(387, 116);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(121, 27);
+            this.btnClear.Size = new System.Drawing.Size(104, 28);
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -108,9 +110,9 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(160, 116);
+            this.btnSearch.Location = new System.Drawing.Point(280, 116);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(121, 28);
+            this.btnSearch.Size = new System.Drawing.Size(101, 28);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -395,6 +397,17 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
+            // txtExcel
+            // 
+            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExcel.Location = new System.Drawing.Point(106, 111);
+            this.txtExcel.Name = "txtExcel";
+            this.txtExcel.Size = new System.Drawing.Size(150, 33);
+            this.txtExcel.TabIndex = 7;
+            this.txtExcel.Text = "Export to Excel";
+            this.txtExcel.UseVisualStyleBackColor = true;
+            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
+            // 
             // FrmSalaryList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,5 +466,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button txtExcel;
     }
 }

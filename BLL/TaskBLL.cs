@@ -37,9 +37,9 @@ namespace BLL
             TaskDAO.UpdateTask(task);
         }
 
-        public static void UpdateTasks(int taskID, int approved)
+        public static void ApproveTask(int taskID, bool isAdmin)
         {
-            TaskDAO.UpdateTasks(taskID, approved);
+            TaskDAO.ApproveTask(taskID, isAdmin);
         }
     }
 }

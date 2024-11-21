@@ -47,6 +47,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.txtExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.txtExcel);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.cmbPosition);
@@ -70,14 +72,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(747, 112);
+            this.panel1.Size = new System.Drawing.Size(747, 114);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(614, 64);
+            this.btnClear.Location = new System.Drawing.Point(614, 66);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(121, 45);
             this.btnClear.TabIndex = 6;
@@ -260,6 +262,17 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // txtExcel
+            // 
+            this.txtExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExcel.Location = new System.Drawing.Point(413, 78);
+            this.txtExcel.Name = "txtExcel";
+            this.txtExcel.Size = new System.Drawing.Size(150, 33);
+            this.txtExcel.TabIndex = 6;
+            this.txtExcel.Text = "Export to Excel";
+            this.txtExcel.UseVisualStyleBackColor = true;
+            this.txtExcel.Click += new System.EventHandler(this.txtExcel_Click);
+            // 
             // FrmEmployeeList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,5 +315,6 @@
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button txtExcel;
     }
 }

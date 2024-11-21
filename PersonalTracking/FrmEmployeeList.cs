@@ -197,5 +197,10 @@ namespace PersonalTracking
             detail.Birthday = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex ].Cells[13].Value);                                                
             
         }
+
+        private void txtExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel.ExcelExport(dataGridView1);
+        }
     }
 }
