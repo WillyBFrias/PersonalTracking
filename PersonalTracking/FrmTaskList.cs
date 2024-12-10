@@ -62,21 +62,21 @@ namespace PersonalTracking
         private void FrmTaskList_Load(object sender, EventArgs e)
         {
             FillAllData();
-            dataGridView1.Columns[0].HeaderText = "Task Title";
-            dataGridView1.Columns[1].HeaderText = "User No";
-            dataGridView1.Columns[2].HeaderText = "Name";
+            dataGridView1.Columns[0].HeaderText = "Task Title";  //Titulo de Tarea
+            dataGridView1.Columns[1].HeaderText = "User No";     //Numero de Usuario 
+            dataGridView1.Columns[2].HeaderText = "Name";        //Numero 
             dataGridView1.Columns[3].HeaderText = "SurName";
             dataGridView1.Columns[4].HeaderText = "Start Date";
             dataGridView1.Columns[5].HeaderText = "Delivery Date";
             dataGridView1.Columns[6].HeaderText = "Task Date";
-            dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
-            dataGridView1.Columns[10].Visible = false;
-            dataGridView1.Columns[11].Visible = false;
-            dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[14].Visible = false;
+            dataGridView1.Columns[7].Visible    = false;
+            dataGridView1.Columns[8].Visible    = false;
+            dataGridView1.Columns[9].Visible    = false;
+            dataGridView1.Columns[10].Visible   = false;
+            dataGridView1.Columns[11].Visible   = false;
+            dataGridView1.Columns[12].Visible   = false;
+            dataGridView1.Columns[13].Visible   = false;
+            dataGridView1.Columns[14].Visible   = false;
             if(!UserStatic.IsAdmin)
             {
 

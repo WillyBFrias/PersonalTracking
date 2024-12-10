@@ -121,10 +121,10 @@ namespace PersonalTracking
             dataGridView1.Columns[3].HeaderText = "SurName";    // Apellido del Usuario
             dataGridView1.Columns[4].HeaderText = "Department"; // Departamento Correspondiente
             dataGridView1.Columns[5].HeaderText = "Position";   // Posición  Correspondiente 
-            dataGridView1.Columns[6].Visible = false;           // ID del Departamento 
-            dataGridView1.Columns[7].Visible = false;           // ID de la Posición 
+            dataGridView1.Columns[6].Visible  = false;          // ID del Departamento 
+            dataGridView1.Columns[7].Visible  = false;          // ID de la Posición 
             dataGridView1.Columns[8].HeaderText = "Salary";     // Salario del Usuario
-            dataGridView1.Columns[9].Visible = false;           // Si es Administrador o no
+            dataGridView1.Columns[9].Visible  = false;          // Si es Administrador o no
             dataGridView1.Columns[10].Visible = false;          // Contra del Usuario
             dataGridView1.Columns[11].Visible = false;          // Imagen del Usuario
             dataGridView1.Columns[12].Visible = false;          // Dirección del Usuario 

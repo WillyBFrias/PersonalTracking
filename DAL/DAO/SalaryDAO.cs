@@ -49,6 +49,8 @@ namespace DAL.DAO
             var list=(from s in db.SALARY
                       join e in db.EMPLOYEE on s.EmployeeID equals e.ID
                       join m in db.MONTHS on s.MonthID equals m.ID
+                      join d in db.DEPARTMENTS on e.DepartmentID equals d.ID
+                      join p in db.POSITION on e.PositionID equals p.ID
                       select new
                       {
                           UserNo=e.UserNo,
@@ -62,6 +64,8 @@ namespace DAL.DAO
                           SalaryID=s.ID,
                           DepartmentID=e.DepartmentID,
                           PositionID=e.PositionID,
+                          DepartmentName= d.DepartmentName,
+                          PositionName = p.PositionName,
 
                       }).OrderBy(x=>x.Year).ToList();
             foreach (var item in list)
@@ -79,6 +83,8 @@ namespace DAL.DAO
                 dto.DepartmentID= item.DepartmentID;
                 dto.PositionID= item.PositionID;
                 dto.OldSalary= item.Amount;
+                dto.DepartmentName= item.DepartmentName;
+                dto.PositionName= item.PositionName;
                 salaryList.Add(dto);
 
             }

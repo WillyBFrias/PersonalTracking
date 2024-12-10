@@ -42,24 +42,28 @@ namespace DAL.DAO
         {
             List<PermissionDetailDTO > permissions = new List<PermissionDetailDTO>();
 
-            var list=(from p in db.PERMISSION
-                      join s in db.PERMISSIONSTATE on p.PermissionState equals s.ID
-                      join e in db.EMPLOYEE on p.EmployeeID equals e.ID
+            var list=(from ps in db.PERMISSION
+                      join s in db.PERMISSIONSTATE on ps.PermissionState equals s.ID
+                      join e in db.EMPLOYEE on ps.EmployeeID equals e.ID
+                      join d in db.DEPARTMENTS on e.DepartmentID equals d.ID
+                      join p in db.POSITION on e.PositionID equals p.ID
                       select new
                       {
                           UserNo= e.UserNo,
                           Name= e.Name,
                           Surname= e.SurName,
                           Statename = s.StateName,
-                          StateID = p.PermissionState,
-                          Startdate= p.PermissionStartDate,
-                          EndDate= p.PermissionEndDate,
-                          EmployeeID= p.EmployeeID,
+                          StateID = ps.PermissionState,
+                          Startdate= ps.PermissionStartDate,
+                          EndDate= ps.PermissionEndDate,
+                          EmployeeID= ps.EmployeeID,
                           PermissionID= p.ID,
-                          Explanation= p.PermissionExplanation,
-                          Dayamount= p.PermissionDay,
+                          Explanation= ps.PermissionExplanation,
+                          Dayamount= ps.PermissionDay,
                           DepartmentID= e.DepartmentID,
                           PositionID= e.PositionID,
+                          DepartmentName= d.DepartmentName,
+                          PositionName= p.PositionName,
 
 
                       }).OrderBy(x=>x.Startdate).ToList();
@@ -79,6 +83,8 @@ namespace DAL.DAO
                 dto.StateName = item.Statename;
                 dto.Explanation = item.Explanation;
                 dto.PermissionID = item.PermissionID;
+                dto.DepartmentName = item.DepartmentName;
+                dto.PositionName = item.PositionName;
                 permissions.Add(dto);
                 
             }
